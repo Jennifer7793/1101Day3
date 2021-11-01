@@ -13,8 +13,7 @@ RSpec.describe Bank do
 
     it "不可以存0元或是小於0元的金額"
     account = Bank.new(10)
-    account.deposit(-1)
-    expect(account.balance).to be 10
+    expect { account.deposit(-5) }. to raise_exception BankError
   end
 end
 
